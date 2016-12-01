@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PictureSwitch</title>
+
+    <style>
+        .img-box{
+            width: 517px;
+            height: 646px;
+            margin: 0px 170px;
+            position: absolute;
+        }
+        .img-box img{
+            position: absolute;
+            width: 517px;
+            height: 646px;
+            top: 0;
+            left: 0;
+        }
+        .btn-box{
+            margin: 160px 700px;
+            width:200px;
+            position: absolute;
+        }
+        .btn-box button{
+            width: 240px;
+            height: 49px;
+            border: 0px;
+            font-family: 宋体;
+            font-size: 38px;
+            line-height: 100%;
+            text-align: left;
+            margin: 60px;
+            outline: none;
+        }
+        .backGround{
+            position:absolute;
+            left:0px;
+            top:0px;
+            width:100%;
+            height:100%;
+            background-repeat: no-repeat;
+            z-index:-1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="img-box">
+    <img id="img" src="img/bw1.png">
+</div>
+
+<div class="backGround">
+    <img id="backGround" src="img/bw-bg.png">
+</div>
+
+<div class="btn-box">
+    <button id="XX" style="background: url(img/btn-gray.png)">&nbsp;小新</button>
+    <button id="BW" style="background: url(img/btn-blue.png)">&nbsp;巴卫</button>
+</div>
+
+
+<script>
+    var btn1=document.getElementById("XX");
+    var btn2=document.getElementById("BW");
+    var img=document.getElementById("img");
+    var backGround=document.getElementById("backGround");
+
+    btn1.style.color='rgb(103,163,171)';
+    btn2.style.color='rgb(0,0,0)';
+
+    btn1.onclick=function(){
+        img.setAttribute("src","img/xx2.png");
+        backGround.setAttribute("src","img/xx-bg.png");
+        btn1.setAttribute("style","background: url(img/btn-blue.png)");
+        btn1.style.color='rgb(0,0,0)';
+        btn2.setAttribute("style","background: url(img/btn-gray.png)");
+        btn2.style.color='rgb(103,163,171)';
+    }
+    btn2.onclick=function(){
+        img.setAttribute("src","img/bw1.png");
+        backGround.setAttribute("src","img/bw-bg.png");
+        btn1.setAttribute("style","background: url(img/btn-gray.png)");
+        btn1.style.color='rgb(103,163,171)';
+        btn2.setAttribute("style","background: url(img/btn-blue.png)");
+        btn2.style.color='rgb(0,0,0)';
+    }
+</script>
+
+
+
+
+</body>
+</html>
