@@ -1,0 +1,122 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<title>华中科技大学学生综合服务系统</title>
+<link href="/xg/css/xg.css" rel="stylesheet" type="text/css">
+<script src="/xg/script/sel_style.js" type="text/javascript"></script><link id="test" href="/xg/common/frame/heer/xtheme-default.css" rel="stylesheet" type="text/css"></head>
+
+<body scroll="no"><iframe id="displaySelectLayer" frameborder="0" scrolling="yes" style="position: absolute; width: 160px; height: 0px; z-index: 9998; display: none;" author="heerit"></iframe>
+
+<script src="/xg/script/security/common.js" type="text/javascript"></script>	
+<script src="/xg/script/encrypt.js" type="text/javascript"></script>
+<script src="/xg/script/common.js" type="text/javascript"></script>
+<script type="text/javascript"> 
+var global_guest_name='华中科技大学';
+var global_system_name='校务系统'; 
+var global_webmaster_name='webmaster';
+var global_webmaster_mail='webmaster@hnust.edu.cn';
+var global_password_cryption='false';
+document.title = global_guest_name+"学生综合服务系统";
+//防止页面被框架包含 
+if(top != self)
+	top.location = '/xg/login.jsp';
+function MM_login(){					
+	var name = document.forms[0].j_username.value;
+	var pass = document.forms[0].j_password.value;
+	// 如果连续三次不正确，则锁定
+	if(name=='' ){			
+		alert("请输入用户名");
+		document.forms[0].j_username.focus();
+		return false;
+	}	
+	if(pass == ''){
+		alert("请输入密码");
+		document.forms[0].j_password.focus();				
+		return false;	
+	}	
+	 
+	 var user = "";  
+	 if(name== user ){
+		var result = window.confirm(name+",您已经登录本系统!是否重新登录？");
+		if(!result) return false; 
+	 } 	
+	//弹出进度条
+	if(!getClickLoading('登录信息',0.005))
+		return false;
+	//口令加密
+   //  var securitySalt = ""; 
+	 if(global_password_cryption == 'true'){
+	   pass = encode64(getHashCode(encode64(getHashCode(pass)))); 
+	   }
+
+	document.forms[0].j_password.value = pass; 
+	return true;
+}
+function do_login(){
+	if(MM_login()){
+		document.forms[0].submit();
+	}
+}
+function do_reset(){
+	document.forms[0].reset();
+}
+document.onkeydown = function () {
+  var e = event.srcElement;
+  if(event.keyCode == 13) {
+	  do_login();
+  }
+}
+</script>
+
+
+
+<form name="f" action="/xg/login.do" method="post" target="_top">
+<div class="logindiv">
+<table width="1002" align="center" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <td align="left" valign="top"><img width="226" height="154" src="/xg/image/login/t-1.gif"></td>
+    <td><img width="244" height="154" src="/xg/image/login/t-2.gif"></td>
+    <td><img width="396" height="154" src="/xg/image/login/t-3.gif"></td>
+    <td><img width="136" height="154" src="/xg/image/login/t-4.gif"></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top"><img width="226" height="97" src="/xg/image/login/t-5.gif"></td>
+    <td><img width="244" height="97" src="/xg/image/login/t-6.gif"></td>
+    <td><img width="396" height="97" src="/xg/image/login/t-7.gif"></td>
+    <td><img width="136" height="97" src="/xg/image/login/t-8.gif"></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top"><img width="226" height="123" src="/xg/image/login/t-9.gif"></td>
+    <td><img width="244" height="123" src="/xg/image/login/t-10.gif"></td>
+    <td class="login-dl" rowspan="2"><table width="283" align="left" class="dltab" border="0" cellspacing="0" cellpadding="0">
+      <tbody><tr>
+        <td align="right">用户名：</td>
+        <td align="left"><input name="j_username" title="请输入您的用户名" class="input" type="text" size="23"></td>
+      </tr>
+      <tr>
+        <td align="right">密&nbsp;&nbsp;码：</td>
+        <td align="left"><input name="j_password" title="请输入您的用户密码" class="input" type="password" size="23"></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td height="50" align="left" valign="bottom">
+        	<img width="56" height="23" style="cursor:pointer" onclick="do_login()" src="/xg/image/login/dl.gif">&nbsp;&nbsp;<img width="56" height="23" style="cursor:pointer" onclick="do_reset()" src="/xg/image/login/cz.gif"></td>
+      </tr>
+    </tbody></table></td>
+    <td><img width="136" height="123" src="/xg/image/login/t-12.gif"></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td><img width="136" height="94" src="/xg/image/login/t-13.gif"></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td align="left" class="t14" valign="top" colspan="2">版权所有©2013 华中科技大学|&nbsp;技术支持：北京希尔信息技术有限公司</td>
+    </tr>
+</tbody></table>
+</div>
+</form>
+
+
+</body></html>
